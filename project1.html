@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Home Decorator</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Add favicon -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #FFB7C5;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logo {
+            max-width: 150px;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .search-container input[type="text"] {
+            padding: 10px;
+            width: 200px; /* Search bar width */
+            border-radius: 20px; /* Rounded corners */
+            border: 1px solid #ccc; /* Border style */
+        }
+
+        .search-container button {
+            padding: 10px 15px;
+            background-color: #FFB5C0; /* Light Pink for buttons */
+            color: white; /* Button text color */
+            border: none;
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+
+        .search-container button:hover {
+            background-color: #FF8DA1; 
+        }
+
+        main {
+            padding: 20px;
+            flex-grow: 1; 
+        }
+
+        footer {
+            background-color: #FFB7C5; 
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .footer-text {
+            font-size: 14px; 
+        }
+
+        .header-title {
+            font-size: 36px; 
+            color: black; 
+        }
+        
+        .try-free-button {
+            display: inline-block; /* Make it behave like a button */
+            margin-top: 20px; /* Space above the button */
+            padding: 10px 20px; /* Button padding */
+            background-color: #FF9EB3; /* Light Pink for button */
+            color: white; /* Button text color */
+            border-radius: 5px; /* Rounded corners */
+            text-decoration: none; /* Remove underline from link */
+            font-size: 16px; /* Font size */
+        }
+
+        .try-free-button:hover {
+            background-color: #FF8DA1; /* Darker shade of pink for hover effect */
+        }
+        
+        @media (max-width: 600px) {
+          nav ul {
+              flex-direction: column; /* Stack items on small screens */
+          }
+          nav ul li {
+              margin-bottom: 10px; /* Space between items */
+          }
+          .search-container input[type="text"] {
+              width:auto ; /* Allow search bar to resize */
+          }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="your-logo-url.png" alt="AR Home Decorator Logo" class="logo">
+        <h1 class="header-title">AR Home Decorator</h1>
+        <nav>
+            <ul>
+                <li><a href="C:\Users\ripun\Desktop\hci\project1.html">Home</a></li>
+                <li><a href="C:\Users\ripun\Desktop\hci\progectcreatepage.html">Create</a></li>
+                <li><a href="C:\Users\ripun\Desktop\hci\projectaboutus.html">About Us</a></li>
+                <li><a href="C:\Users\ripun\Desktop\hci\projectcontactuspage.html">Contact Us</a></li>
+
+                <!-- Search Bar -->
+                <li class="search-container">
+                    <form action="/search" method="GET"> <!-- Add form action -->
+                        <input type="text" placeholder="Search designs and furniture..." aria-label="Search designs and furniture">
+                        <button type="submit">Search</button>
+                    </form>
+                </li>
+
+                <li><a href="C:\Users\ripun\Desktop\hci\projectloginpage.html">Login</a></li>
+                <!-- Add more links as needed -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Welcome to AR Home Decorator!</h2>
+        <p>Explore our collection of home decor and furniture designs.</p>
+
+        <!-- Try for Free Button as an Anchor Tag -->
+        <a href="C:\Users\ripun\Desktop\hci\progectcreatepage.html" class="try-free-button">Try for Free</a>
+
+    </main>
+
+    <footer>
+        <p class="footer-text">&copy; 2024 AR Home Decorator. All rights reserved.</p> <!-- Copyright text -->
+    </footer>
+</body>
+</html>      

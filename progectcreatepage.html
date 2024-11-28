@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create - AR Home Decorator</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #FFB7C5; /* Light Cherry Pink */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: white; /* Link color */
+            text-decoration: none; /* Remove underline */
+            font-weight: bold; /* Bold links */
+        }
+
+        main {
+            padding: 20px;
+            flex-grow: 1; 
+            display: flex; /* Flexbox for layout */
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center; /* Center items */
+        }
+
+        .create-section {
+            width: 100%;
+            max-width: 800px; /* Max width for content */
+            background-color: #FFFFFF; /* White background for the create section */
+            padding: 20px; /* Padding around content */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        h2 {
+            text-align: center; /* Center the heading */
+        }
+
+        .form-group {
+            margin-bottom: 15px; /* Space between form groups */
+        }
+
+        label {
+            display: block; /* Block display for labels */
+            margin-bottom: 5px; /* Space below labels */
+        }
+
+        select,
+        input[type="color"],
+        button {
+            width: 100%; /* Full width inputs */
+            padding: 10px; /* Padding inside inputs */
+            border-radius: 5px; /* Rounded corners */
+            border: 1px solid #ccc; /* Border style */
+        }
+
+        button {
+            background-color: #FF9EB3; /* Light Pink for buttons */
+            color: white; /* Button text color */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+
+        button:hover {
+            background-color: #FF8DA1; /* Darker shade of pink for hover effect */
+        }
+
+        .preview-area {
+            margin-top: 20px; /* Space above the preview area */
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px dashed #FFB7C5; /* Dashed border for preview area */
+            text-align: center; /* Centered text in preview area */
+        }
+
+        model-viewer {
+          width: 100%;
+          height: 400px; /* Height of the model viewer */
+          margin-top: 20px;
+          border-radius: 10px;
+      }
+        
+      footer {
+          background-color :#FFB7C5 ;
+          color:white ;
+          text-align:center ;
+          padding :10 px ;
+      }
+      
+      .footer-text{
+          font-size :14 px ;
+      }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>AR Home Decorator</h1>
+    </header>
+
+   <main>
+       <div class="create-section">
+           <h2>Create Your Design</h2>
+
+           <!-- Furniture Selection -->
+           <div class="form-group">
+               <label for="furniture">Select Furniture:</label>
+               <select id="furniture" onchange="loadModel()">
+                   <option value="">Choose an option</option>
+                   <option value="sofa">Sofa</option>
+                   <option value="chair">Chair</option>
+                   <option value="table">Table</option>
+               </select>
+           </div>
+
+           <!-- Color Selection -->
+           <div class="form-group">
+               <label for="color">Select Colour:</label>
+               <input type="color" id="color" value="#ffb7c5"> <!-- Default color -->
+           </div>
+
+           <!-- Style Selection -->
+           <div class="form-group">
+               <label for="style">Select Style:</label>
+               <select id="style">
+                   <option value="">Choose an option</option>
+                   <option value="modern">Modern</option>
+                   <option value="classic">Classic</option>
+                   <option value="rustic">Rustic</option>
+               </select>
+           </div>
+
+           <!-- Create Button -->
+           <button onclick="createDesign()">Create Design</button>
+
+           <!-- Preview Area -->
+           <div class="preview-area" id="previewArea">
+               Preview your design here!
+           </div>
+
+           <!-- Model Viewer Area -->
+           <model-viewer id="modelViewer" alt="3D model of furniture" camera-controls auto-rotate></model-viewer>
+
+       </div> 
+   </main>
+
+   <footer>
+      <p class="footer-text">&copy; 2024 AR Home Decorator. All rights reserved.</p> 
+   </footer>
+
+   <!-- Include Model Viewer Library -->
+   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+   <!-- JavaScript Functionality -->
+   <script>
+       function loadModel() {
+           const furniture = document.getElementById('furniture').value;
+           const modelViewer = document.getElementById('modelViewer');
+
+           let modelPath = '';
+
+           if (furniture === "sofa") {
+               modelPath = 'path/to/sofa.glb'; // Replace with actual path to your sofa model
+           } else if (furniture === "chair") {
+               modelPath = 'path/to/chair.glb'; // Replace with actual path to your chair model
+           } else if (furniture === "table") {
+               modelPath = 'path/to/table.glb'; // Replace with actual path to your table model
+           } else {
+               return; // Exit if no valid furniture is selected
+           }
+
+           // Set the src attribute of the model-viewer to load the selected model
+           modelViewer.setAttribute('src', modelPath);
+       }
+
+       function createDesign() {
+           const furniture = document.getElementById('furniture').value;
+           const color = document.getElementById('color').value;
+           const style = document.getElementById('style').value;
+
+           const previewArea = document.getElementById('previewArea');
+
+           if (furniture && style) {
+               previewArea.innerHTML = `
+                   You have selected a ${style} ${furniture} with color ${color}.`;
+               
+               // Change the color of the model if applicable (you might need to adjust this based on your model)
+               const modelViewer = document.getElementById('modelViewer');
+               // Note that changing the material color dynamically may require additional handling based on how your GLB is set up.
+               
+           } else {
+               previewArea.innerHTML = "Please select both furniture and style.";
+           }
+       }
+   </script>
+
+</body>
+</html>  
